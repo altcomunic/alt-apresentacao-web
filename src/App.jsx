@@ -98,14 +98,11 @@ const cases = [
 
 function AltLogo({ className = "" }) {
   return (
-    <div className={`flex items-center gap-3 text-white ${className}`} aria-label="Alt Comunicação">
-      <div className="text-5xl font-semibold lowercase leading-none tracking-[-0.08em]">alt</div>
-      <div className="grid grid-cols-1 text-[13px] font-semibold uppercase leading-[0.86] tracking-[0.34em]">
-        <span>Comu</span>
-        <span>Nica</span>
-        <span>ção.</span>
-      </div>
-    </div>
+    <img
+      src="/LOGO.svg"
+      alt="Alt Comunicação"
+      className={`h-14 w-auto object-contain ${className}`}
+    />
   );
 }
 
