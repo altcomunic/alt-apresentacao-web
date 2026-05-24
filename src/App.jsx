@@ -99,7 +99,7 @@ const cases = [
 function AltLogo({ className = "" }) {
   return (
     <img
-      src="/LOGO.svg"
+      src="./LOGO.svg"
       alt="Alt Comunicação"
       className={`h-14 w-auto object-contain ${className}`}
     />
