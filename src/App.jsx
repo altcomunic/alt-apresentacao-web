@@ -159,15 +159,32 @@ export default function App() {
         <div className="mx-auto flex max-w-[1800px] items-center justify-between px-5 py-5 md:px-14">
           <AltLogo />
 
-          <nav className="hidden gap-8 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/70 lg:flex">
-            <a href="#problema" className="hover:text-white">Problema</a>
-            <a href="#alt" className="hover:text-white">Alt</a>
-            <a href="#servicos" className="hover:text-white">Serviços</a>
-            <a href="#cases" className="hover:text-white">Cases</a>
-            <a href="#processo" className="hover:text-white">Processo</a>
-            <a href="#planos" className="hover:text-white">Planos</a>
-            <a href="#contato" className="hover:text-white">Contato</a>
-          </nav>
+         <nav className="hidden gap-8 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/70 lg:flex">
+
+  <a href="#problema" className="hover:text-white">Problema</a>
+
+  <a href="#alt" className="hover:text-white">Alt</a>
+
+  <a href="#servicos" className="hover:text-white">Serviços</a>
+
+  <a href="#cases" className="hover:text-white">Cases</a>
+
+  <a href="#processo" className="hover:text-white">Processo</a>
+
+  <a href="#planos" className="hover:text-white">Planos</a>
+
+  <a
+    href="https://drive.google.com/file/d/1qCwd2i7gpnbpJHKubF2CaDwvQTJZ7xkI/view?usp=sharing"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-white"
+  >
+    Vídeos
+  </a>
+
+  <a href="#contato" className="hover:text-white">Contato</a>
+
+</nav>
         </div>
       </header>
 
