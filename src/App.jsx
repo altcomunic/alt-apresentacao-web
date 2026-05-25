@@ -202,7 +202,7 @@ export default function App() {
                 className="mb-8 inline-flex items-center gap-3 border border-white/20 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/70 backdrop-blur"
               >
                 <Sparkles size={14} style={{ color: orange }} />
-                Apresentação comercial premium
+                Apresentação comercial
               </motion.div>
 
               <motion.h1
