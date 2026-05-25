@@ -136,17 +136,36 @@ export default function App() {
             transition={{ duration: 0.7 }}
             className="text-center"
           >
-            <AltLogo className="scale-150 justify-center" />
+            <motion.div
+  initial={{ opacity: 0, y: 18, scale: 0.96 }}
+  animate={{ opacity: 1, y: 0, scale: 1 }}
+  transition={{ duration: 0.7 }}
+  className="text-center"
+>
 
-            <motion.div className="mx-auto mt-12 h-px w-72 overflow-hidden bg-white/15">
-              <motion.div
-                initial={{ x: "-100%" }}
-                animate={{ x: "100%" }}
-                transition={{ duration: 1.1, repeat: Infinity, ease: "easeInOut" }}
-                className="h-full w-1/2"
-                style={{ backgroundColor: orange }}
-              />
-            </motion.div>
+  <div className="flex justify-center">
+    <AltLogo className="scale-150" />
+  </div>
+
+  <motion.div className="mx-auto mt-12 h-px w-72 overflow-hidden bg-white/15">
+
+    <motion.div
+      initial={{ x: "-100%" }}
+      animate={{ x: "100%" }}
+      transition={{
+        duration: 1.1,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+      className="h-full w-1/2"
+      style={{
+        backgroundColor: orange,
+      }}
+    />
+
+  </motion.div>
+
+</motion.div>
 
             <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.35em] text-white/45">
               Branding / Growth / Performance
@@ -174,7 +193,7 @@ export default function App() {
   <a href="#planos" className="hover:text-white">Planos</a>
 
   <a
-    href="https://drive.google.com/file/d/1qCwd2i7gpnbpJHKubF2CaDwvQTJZ7xkI/view?usp=sharing"
+    href="https://drive.google.com/drive/folders/1Cx76dm2wJcAihwUlUlCBpxJO_i8iTDY_?usp=sharing"
     target="_blank"
     rel="noopener noreferrer"
     className="hover:text-white"
