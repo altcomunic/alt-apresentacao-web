@@ -76,30 +76,32 @@ const cases = [
   {
     client: "Meso Arquitetura",
     type: "Branding / Social / Direção visual",
-    desc: "Arquitetura, estética premium e narrativa visual para fortalecer percepção de valor.",
-    bg: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=1600&auto=format&fit=crop",
-    video: "https://videos.pexels.com/video-files/7578552/7578552-hd_1920_1080_25fps.mp4",
+    desc: "Arquitetura, estética premium e narrativa visual para fortalecer percepção de valor durante o CasaCor.",
+    bg: "https://www.instagram.com/p/DVwjTSbDd0o/",
+    link: "https://www.instagram.com/meso_arquitetura/",
   },
+
   {
     client: "EnForce Engenharia",
     type: "Manual de marca / Identidade",
     desc: "Sistema visual técnico, institucional e consistente para uma marca de engenharia.",
-    bg: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1600&auto=format&fit=crop",
-    video: "https://videos.pexels.com/video-files/5585931/5585931-hd_1920_1080_25fps.mp4",
+    bg: "https://www.instagram.com/p/CnSueWEuwo-/?img_index=1",
+    link: "https://www.behance.net/gallery/104431199/Manual-EnForce-Engenharia",
   },
+
   {
-    client: "Glueck Imóveis",
+    client: "Grupo Saga",
     type: "Social Media / Campanhas",
-    desc: "Conteúdo comercial com apelo visual para mercado imobiliário e captação de demanda.",
-    bg: "https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?q=80&w=1600&auto=format&fit=crop",
-    video: "https://videos.pexels.com/video-files/7578548/7578548-hd_1920_1080_25fps.mp4",
+    desc: "Planejamento, conteúdo comercial e acompanhamento de equipe de vendas.",
+    bg: "https://assets.volkswagen.com/is/image/volkswagenag/Jetta-GLI-19?Zml0PWNyb3AsMSZmbXQ9cG5nJndpZD04MDAmYWxpZ249MC4wMCwwLjAwJmJmYz1vZmYmYzRiMA==",
+    link: "https://drive.google.com/file/d/1qCwd2i7gpnbpJHKubF2CaDwvQTJZ7xkI/view?usp=sharing",
   },
 ];
 
 function AltLogo({ className = "" }) {
   return (
     <img
-      src="./LOGO.svg"
+      src="/LOGO.svg"
       alt="Alt Comunicação"
       className={`h-14 w-auto object-contain ${className}`}
     />
