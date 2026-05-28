@@ -89,14 +89,14 @@ const cases = [
     type: "Manual de marca / Identidade",
     desc: "Sistema visual técnico, institucional e consistente para uma marca de engenharia.",
     bg: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop",
-    link: "https://www.behance.net/gallery/104431199/Manual-EnForce-Engenharia",
+    link: "https://www.instagram.com/en.forceengenharia/",
   },
   {
     client: "Grupo Saga",
     type: "Social Media / Campanhas",
     desc: "Planejamento, conteúdo comercial e acompanhamento de equipe de vendas.",
     bg: "https://assets.volkswagen.com/is/image/volkswagenag/Jetta-GLI-19?Zml0PWNyb3AsMSZmbXQ9cG5nJndpZD04MDAmYWxpZ249MC4wMCwwLjAwJmJmYz1vZmYmYzRiMA==",
-    link: "https://drive.google.com/file/d/1qCwd2i7gpnbpJHKubF2CaDwvQTJZ7xkI/view?usp=sharing",
+    link: "https://www.instagram.com/sagavolkswagengoiania/",
   },
 ];
 
@@ -211,7 +211,7 @@ export default function App() {
             <a href="#processo" className="hover:text-white">Processo</a>
             <a href="#planos" className="hover:text-white">Planos</a>
             <a
-              href="https://drive.google.com/file/d/1qCwd2i7gpnbpJHKubF2CaDwvQTJZ7xkI/view?usp=sharing"
+              href="https://drive.google.com/drive/folders/1soDm7qsbGqJjsVUlH5A-KGZNt1smP-mx?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white"
