@@ -134,43 +134,18 @@ export default function App() {
   }, []);
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSending(true);
 
-  e.preventDefault();
-
-  setSending(true);
-
-  try {
-
-    const response = await fetch(APPS_SCRIPT_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "text/plain;charset=utf-8",
-      },
-      body: JSON.stringify(formData),
-    });
-
-    alert("Lead enviado com sucesso!");
-
-    setFormData({
-      nome: "",
-      email: "",
-      empresa: "",
-      whatsapp: "",
-      comercial: "",
-    });
-
-  } catch (error) {
-
-    console.error(error);
-
-    alert("Erro ao enviar lead.");
-
-  } finally {
-
-    setSending(false);
-
-  }
-};
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(formData),
+      });
 
       alert("Lead enviado com sucesso!");
 
@@ -182,6 +157,7 @@ export default function App() {
         comercial: "",
       });
     } catch (error) {
+      console.error(error);
       alert("Erro ao enviar. Tente novamente.");
     } finally {
       setSending(false);
