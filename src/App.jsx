@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
-  BarChart3,
   Bot,
   Check,
   Film,
@@ -19,6 +18,9 @@ import {
 import logoAlt from "../LOGO.svg";
 
 const orange = "#f26a2e";
+
+const APPS_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbxe4iw-HP4zXuj8zg05qcUZ8eTLVzVEWn6zdbYz7G1oEooGyl8eqhgWb2ty1vwXN070tw/exec";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 34, filter: "blur(8px)" },
@@ -87,14 +89,14 @@ const cases = [
     type: "Manual de marca / Identidade",
     desc: "Sistema visual técnico, institucional e consistente para uma marca de engenharia.",
     bg: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop",
-    link: "https://www.instagram.com/en.forceengenharia/",
+    link: "https://www.behance.net/gallery/104431199/Manual-EnForce-Engenharia",
   },
   {
     client: "Grupo Saga",
     type: "Social Media / Campanhas",
     desc: "Planejamento, conteúdo comercial e acompanhamento de equipe de vendas.",
     bg: "https://assets.volkswagen.com/is/image/volkswagenag/Jetta-GLI-19?Zml0PWNyb3AsMSZmbXQ9cG5nJndpZD04MDAmYWxpZ249MC4wMCwwLjAwJmJmYz1vZmYmYzRiMA==",
-    link: "https://www.instagram.com/sagavolkswagengoiania/",
+    link: "https://drive.google.com/file/d/1qCwd2i7gpnbpJHKubF2CaDwvQTJZ7xkI/view?usp=sharing",
   },
 ];
 
@@ -110,6 +112,16 @@ function AltLogo({ className = "" }) {
 
 export default function App() {
   const [loading, setLoading] = useState(true);
+  const [sending, setSending] = useState(false);
+
+  const [formData, setFormData] = useState({
+    nome: "",
+    email: "",
+    empresa: "",
+    whatsapp: "",
+    comercial: "",
+  });
+
   const { scrollYProgress } = useScroll();
 
   const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
@@ -120,6 +132,36 @@ export default function App() {
     const timer = setTimeout(() => setLoading(false), 1500);
     return () => clearTimeout(timer);
   }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSending(true);
+
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      alert("Lead enviado com sucesso!");
+
+      setFormData({
+        nome: "",
+        email: "",
+        empresa: "",
+        whatsapp: "",
+        comercial: "",
+      });
+    } catch (error) {
+      alert("Erro ao enviar. Tente novamente.");
+    } finally {
+      setSending(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-black text-white selection:bg-white selection:text-black">
@@ -136,36 +178,19 @@ export default function App() {
             transition={{ duration: 0.7 }}
             className="text-center"
           >
-            <motion.div
-  initial={{ opacity: 0, y: 18, scale: 0.96 }}
-  animate={{ opacity: 1, y: 0, scale: 1 }}
-  transition={{ duration: 0.7 }}
-  className="text-center"
->
+            <div className="flex justify-center">
+              <AltLogo className="scale-150" />
+            </div>
 
-  <div className="flex justify-center">
-    <AltLogo className="scale-150" />
-  </div>
-
-  <motion.div className="mx-auto mt-12 h-px w-72 overflow-hidden bg-white/15">
-
-    <motion.div
-      initial={{ x: "-100%" }}
-      animate={{ x: "100%" }}
-      transition={{
-        duration: 1.1,
-        repeat: Infinity,
-        ease: "easeInOut",
-      }}
-      className="h-full w-1/2"
-      style={{
-        backgroundColor: orange,
-      }}
-    />
-
-  </motion.div>
-
-</motion.div>
+            <motion.div className="mx-auto mt-12 h-px w-72 overflow-hidden bg-white/15">
+              <motion.div
+                initial={{ x: "-100%" }}
+                animate={{ x: "100%" }}
+                transition={{ duration: 1.1, repeat: Infinity, ease: "easeInOut" }}
+                className="h-full w-1/2"
+                style={{ backgroundColor: orange }}
+              />
+            </motion.div>
 
             <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.35em] text-white/45">
               Branding / Growth / Performance
@@ -178,32 +203,23 @@ export default function App() {
         <div className="mx-auto flex max-w-[1800px] items-center justify-between px-5 py-5 md:px-14">
           <AltLogo />
 
-         <nav className="hidden gap-8 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/70 lg:flex">
-
-  <a href="#problema" className="hover:text-white">Problema</a>
-
-  <a href="#alt" className="hover:text-white">Alt</a>
-
-  <a href="#servicos" className="hover:text-white">Serviços</a>
-
-  <a href="#cases" className="hover:text-white">Cases</a>
-
-  <a href="#processo" className="hover:text-white">Processo</a>
-
-  <a href="#planos" className="hover:text-white">Planos</a>
-
-  <a
-    href="https://drive.google.com/drive/folders/1Cx76dm2wJcAihwUlUlCBpxJO_i8iTDY_?usp=sharing"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="hover:text-white"
-  >
-    Vídeos
-  </a>
-
-  <a href="#contato" className="hover:text-white">Contato</a>
-
-</nav>
+          <nav className="hidden gap-8 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/70 lg:flex">
+            <a href="#problema" className="hover:text-white">Problema</a>
+            <a href="#alt" className="hover:text-white">Alt</a>
+            <a href="#servicos" className="hover:text-white">Serviços</a>
+            <a href="#cases" className="hover:text-white">Cases</a>
+            <a href="#processo" className="hover:text-white">Processo</a>
+            <a href="#planos" className="hover:text-white">Planos</a>
+            <a
+              href="https://drive.google.com/file/d/1qCwd2i7gpnbpJHKubF2CaDwvQTJZ7xkI/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white"
+            >
+              Vídeos
+            </a>
+            <a href="#contato" className="hover:text-white">Contato</a>
+          </nav>
         </div>
       </header>
 
@@ -238,7 +254,7 @@ export default function App() {
                 className="mb-8 inline-flex items-center gap-3 border border-white/20 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/70 backdrop-blur"
               >
                 <Sparkles size={14} style={{ color: orange }} />
-                Apresentação comercial
+                Apresentação comercial premium
               </motion.div>
 
               <motion.h1
@@ -568,23 +584,56 @@ export default function App() {
             </div>
 
             <motion.form
+              onSubmit={handleSubmit}
               variants={fadeUp}
               className="rounded-[2rem] border border-white/15 bg-black/65 p-6 backdrop-blur-2xl"
             >
-              {["Nome", "E-mail", "Empresa", "WhatsApp"].map((field) => (
-                <input
-                  key={field}
-                  placeholder={field}
-                  className="mb-3 w-full border border-white/15 bg-white/[0.04] px-4 py-4 text-xs font-bold uppercase tracking-[0.16em] outline-none placeholder:text-white/35 focus:border-white"
-                />
-              ))}
+              <input
+                required
+                placeholder="Nome"
+                value={formData.nome}
+                onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
+                className="mb-3 w-full border border-white/15 bg-white/[0.04] px-4 py-4 text-xs font-bold uppercase tracking-[0.16em] outline-none placeholder:text-white/35 focus:border-white"
+              />
+
+              <input
+                required
+                type="email"
+                placeholder="E-mail"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className="mb-3 w-full border border-white/15 bg-white/[0.04] px-4 py-4 text-xs font-bold uppercase tracking-[0.16em] outline-none placeholder:text-white/35 focus:border-white"
+              />
+
+              <input
+                placeholder="Empresa"
+                value={formData.empresa}
+                onChange={(e) => setFormData({ ...formData, empresa: e.target.value })}
+                className="mb-3 w-full border border-white/15 bg-white/[0.04] px-4 py-4 text-xs font-bold uppercase tracking-[0.16em] outline-none placeholder:text-white/35 focus:border-white"
+              />
+
+              <input
+                required
+                placeholder="WhatsApp"
+                value={formData.whatsapp}
+                onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
+                className="mb-3 w-full border border-white/15 bg-white/[0.04] px-4 py-4 text-xs font-bold uppercase tracking-[0.16em] outline-none placeholder:text-white/35 focus:border-white"
+              />
+
+              <input
+                placeholder="Comercial"
+                value={formData.comercial}
+                onChange={(e) => setFormData({ ...formData, comercial: e.target.value })}
+                className="mb-3 w-full border border-white/15 bg-white/[0.04] px-4 py-4 text-xs font-bold uppercase tracking-[0.16em] outline-none placeholder:text-white/35 focus:border-white"
+              />
 
               <button
-                type="button"
-                className="mt-2 flex w-full items-center justify-center gap-5 px-5 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-black"
+                type="submit"
+                disabled={sending}
+                className="mt-2 flex w-full items-center justify-center gap-5 px-5 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-black disabled:opacity-60"
                 style={{ backgroundColor: orange }}
               >
-                Quero meu diagnóstico
+                {sending ? "Enviando..." : "Quero meu diagnóstico"}
                 <ArrowRight size={18} />
               </button>
             </motion.form>
