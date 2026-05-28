@@ -20,7 +20,7 @@ import logoAlt from "../LOGO.svg";
 const orange = "#f26a2e";
 
 const APPS_SCRIPT_URL =
-  "https://script.google.com/macros/library/d/1Zc1TZX_oUOR-mfRycEvj2baR3aauxesUbsXCVvYNUpySgegrITNvXE0q/1";
+  "https://script.google.com/macros/s/AKfycbxe4iw-HP4zXuj8zg05qcUZ8eTLVzVEWn6zdbYz7G1oEooGyl8eqhgWb2ty1vwXN070tw/exec;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 34, filter: "blur(8px)" },
