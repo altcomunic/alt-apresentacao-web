@@ -57,20 +57,20 @@ const process = [
 const plans = [
   {
     name: "Start",
-    price: "R$ 3.000",
+    price: "R$ 5.000",
     tag: "Para estruturar presença digital com direção.",
     items: ["Planejamento", "8 a 10 artes", "4 a 5 vídeos", "Stories orientados", "Landing page básica"],
   },
   {
     name: "Growth",
-    price: "R$ 5.000",
+    price: "R$ 7.000",
     tag: "Para gerar demanda com conteúdo, tráfego e automação.",
     featured: true,
     items: ["Planejamento", "8 a 10 artes", "8 a 10 vídeos", "LP básica", "Automações", "Tráfego Meta"],
   },
   {
     name: "Performance",
-    price: "R$ 8.000",
+    price: "PERSONALIZADO",
     tag: "Para marcas que precisam de uma operação completa.",
     items: ["Site completo", "IA e automações", "Tráfego omnichannel", "Conteúdo completo", "Análise de performance"],
   },
