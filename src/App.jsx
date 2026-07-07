@@ -63,7 +63,7 @@ const plans = [
   },
   {
     name: "Growth",
-    price: "R$ 8.000",
+    price: "R$ 7.000",
     tag: "Para gerar demanda com conteúdo, tráfego e automação.",
     featured: true,
     items: ["Planejamento", "8 a 10 artes", "8 a 10 vídeos", "LP básica", "Automações", "Tráfego Meta"],
